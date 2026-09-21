@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Task Force — North American University</title>
+<meta name="description" content="The North American University AI Task Force advances the responsible, effective, and ethical use of artificial intelligence across teaching, learning, research, and operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#242a45; --navy2:#2f3860; --ink:#20242f; --slate:#565f73;
+    --line:#e3e5f0; --bg:#ffffff; --soft:#f5f6fb; --soft2:#ecedfa;
+    --gold:#5b67c0; --teal:#5b67c0; --teal-d:#4a55ac; --white:#fff;
+    --dark:#191d31;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{overflow-x:hidden;max-width:100%}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif;line-height:1.15;color:var(--navy);font-weight:600;margin:0 0 .5em}
+  h2{font-size:clamp(1.6rem,3.2vw,2.3rem)}
+  h3{font-size:1.22rem;font-weight:600}
+  p{margin:0 0 1rem}
+  a{color:var(--teal-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:'Inter';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--teal)}
+
+  /* Header */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(30,35,60,.05)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center}
+  .brand img{height:34px;width:auto;display:block}
+  .navlinks{display:flex;gap:26px}
+  .navlinks a{color:var(--slate);font-size:.9rem;font-weight:600}
+  .navlinks a:hover{color:var(--gold);text-decoration:none}
+  @media(max-width:860px){.navlinks{display:none}}
+
+  /* Hero */
+  .hero{position:relative;background:linear-gradient(100deg,rgba(20,23,40,.95) 0%,rgba(25,29,49,.85) 40%,rgba(38,44,82,.62) 72%,rgba(91,103,192,.4) 100%),url('images/campus.jpg') center 38%/cover no-repeat;color:#eef0fa;padding:82px 0 74px;overflow:hidden}
+  .hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px;mask:radial-gradient(700px 400px at 78% 10%,#000,transparent)}
+  .hero .wrap{position:relative;z-index:2}
+  .hero h1{color:#fff;font-size:clamp(2.4rem,5.6vw,4rem);font-weight:700;letter-spacing:-.01em;margin-bottom:.3em}
+  .hero .lead{font-size:clamp(1.05rem,2vw,1.28rem);color:#cbd9e8;max-width:720px}
+  .badges{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 30px}
+  .badge{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 15px;font-size:.82rem;color:#dbe6f2;font-weight:500}
+  .badge b{color:var(--gold);font-weight:700}
+  .badge a{color:#c3c9f2;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(195,201,242,.45);transition:color .15s,border-color .15s}
+  .badge a:hover{color:#fff;border-bottom-color:#fff}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;font-size:.95rem}
+  .cta:hover{background:var(--teal-d);text-decoration:none}
+  .cta.ghost{background:transparent;color:#eaf1f8;border:1px solid rgba(255,255,255,.28)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  @media(max-width:560px){.hero-cta{flex-direction:column;align-items:stretch}.hero-cta .cta{justify-content:center}}
+  .cta.ghost:hover{background:rgba(255,255,255,.08)}
+
+  /* Sections */
+  section{padding:66px 0;border-bottom:1px solid var(--line)}
+  section.alt{background:var(--soft)}
+  .sec-head{max-width:760px;margin-bottom:34px}
+  .sec-head p{color:var(--slate);font-size:1.06rem;margin:0}
+  .charge{background:linear-gradient(180deg,var(--soft2),#fff);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:26px 30px;max-width:900px}
+  .charge .q{font-family:'Montserrat';font-size:1.25rem;color:var(--navy);font-style:italic;margin:0 0 .5rem}
+  .charge cite{color:var(--slate);font-size:.86rem;font-style:normal}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:820px){.two{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 28px;box-shadow:0 1px 2px rgba(13,35,63,.04)}
+  .card.mission{border-top:4px solid var(--teal)}
+  .card.vision{border-top:4px solid var(--gold)}
+  .card h3{margin-top:0;display:flex;align-items:center;gap:10px}
+  .card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--teal)}
+  .card.vision h3 .dot{background:var(--gold)}
+  .card p{color:var(--ink);margin:0}
+
+  /* Pillars */
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:820px){.pillars{grid-template-columns:1fr}}
+  .pillar{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;position:relative;overflow:hidden}
+  .pillar .n{font-family:'Montserrat';font-weight:700;font-size:2.4rem;color:var(--soft2);position:absolute;top:10px;right:18px;line-height:1}
+  .pillar .goal{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-d);background:var(--soft2);border-radius:6px;padding:4px 9px;margin-bottom:10px}
+  .pillar h3{font-size:1.12rem;margin:0 0 8px;position:relative;z-index:2;max-width:88%}
+  .pillar ul{margin:0;padding-left:18px;color:var(--slate);font-size:.95rem}
+  .pillar li{margin-bottom:5px}
+
+  /* Alignment table */
+  .maptbl{width:100%;border-collapse:collapse;font-size:.95rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .maptbl th{background:var(--navy);color:#fff;text-align:left;padding:12px 16px;font-family:'Inter';font-weight:600;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase}
+  .maptbl td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}
+  .maptbl tr:nth-child(even) td{background:var(--soft)}
+  .maptbl td b{color:var(--navy)}
+  .g{color:var(--teal-d);font-weight:700;white-space:nowrap}
+
+  /* Principles */
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.principles{grid-template-columns:1fr}}
+  .pr{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+  .pr .v{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .pr b{color:var(--navy);font-family:'Montserrat';font-weight:600;font-size:1.05rem}
+
+  /* Timeline */
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.phases{grid-template-columns:1fr}}
+  .phase{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;border-top:4px solid var(--teal)}
+  .phase:nth-child(2){border-top-color:var(--gold)}
+  .phase:nth-child(3){border-top-color:var(--navy)}
+  .phase .term{font-family:'Montserrat';font-weight:700;color:var(--navy);font-size:1.15rem}
+  .phase .tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-bottom:12px}
+  .phase ul{margin:0;padding-left:18px;color:var(--slate);font-size:.94rem}
+  .phase li{margin-bottom:6px}
+
+  /* Priorities */
+  .prio{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  @media(max-width:900px){.prio{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.prio{grid-template-columns:1fr}}
+  .pc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;outline:none}
+  .pc:hover,.pc:focus-visible{transform:translateY(-4px);box-shadow:0 12px 26px rgba(13,35,63,.10);border-color:#c8d6e4}
+  .pc .num{width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-family:'Montserrat';margin-bottom:10px}
+  .pc h4{margin:0 0 6px;font-size:1rem;color:var(--navy)}
+  .pc p{font-size:.88rem;color:var(--slate);margin:0}
+  .pc .more{display:inline-block;margin-top:12px;font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--teal-d);transition:transform .15s,color .15s}
+  .pc:hover .more,.pc:focus-visible .more{color:var(--gold);transform:translateX(3px)}
+
+  /* Modal */
+  .modal-ov{position:fixed;inset:0;background:rgba(9,20,34,.62);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .22s;z-index:100}
+  .modal-ov.open{opacity:1;pointer-events:auto}
+  .modal{background:#fff;border-radius:18px;max-width:620px;width:100%;max-height:88vh;overflow:auto;transform:translateY(18px) scale(.98);transition:transform .24s;box-shadow:0 30px 80px rgba(9,20,34,.42)}
+  .modal-ov.open .modal{transform:none}
+  .modal .mhead{background:linear-gradient(120deg,var(--navy) 0%,#173a5e 100%);color:#fff;padding:26px 28px;position:relative}
+  .modal .mnum{width:42px;height:42px;border-radius:11px;background:var(--gold);color:#fff;display:grid;place-items:center;font-family:'Montserrat';font-weight:700;font-size:1.25rem;margin-bottom:12px}
+  .modal .mhead h3{color:#fff;margin:0;font-size:1.55rem}
+  .modal .mtag{font-size:.78rem;color:#9fd0dd;font-weight:600;margin-top:7px;letter-spacing:.02em}
+  .modal .mbody{padding:24px 28px 28px}
+  .modal .mbody>p{color:var(--ink);margin:0 0 4px}
+  .modal .mbody h5{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin:20px 0 8px}
+  .modal .mbody ul{margin:0;padding-left:18px;color:var(--slate)}
+  .modal .mbody li{margin-bottom:6px}
+  .modal .mmeta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .modal .chip{background:var(--soft2);color:var(--navy);border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600}
+  .mclose{position:absolute;top:16px;right:16px;width:34px;height:34px;border:none;border-radius:9px;background:rgba(255,255,255,.14);color:#fff;font-size:1.35rem;cursor:pointer;line-height:1;display:grid;place-items:center}
+  .mclose:hover{background:rgba(255,255,255,.28)}
+
+  /* Members */
+  .members{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.members{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.members{grid-template-columns:1fr}}
+  .mem{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+  .mem .av{width:82px;height:82px;border-radius:50%;margin:0 auto 12px;background:#eef2f7;color:#fff;display:grid;place-items:center;font-family:'Montserrat';font-weight:700;font-size:1.6rem;overflow:hidden}
+  .mem .av:not(:has(img)){background:linear-gradient(135deg,var(--navy),var(--teal))}
+  .mem .av img{display:block;width:100%;height:100%;object-fit:cover}
+  .mem .av.tbd{background:repeating-linear-gradient(45deg,var(--soft2),var(--soft2) 6px,#e6edf4 6px,#e6edf4 12px);color:var(--slate)}
+  .mem .deg{font-size:.76rem;color:var(--gold);font-weight:700;margin-top:3px;letter-spacing:.02em}
+  .mem b{color:var(--navy);font-size:1.02rem}
+  .mem.naumi{background:linear-gradient(180deg,var(--soft2) 0%,#fff 70%);border-color:#c9cdf1}
+  .mem.naumi .av{background:linear-gradient(135deg,var(--gold),var(--navy))}
+  .mem .tagline{font-size:.8rem;color:var(--slate);margin-top:4px}
+  .mem .chatbtn{margin-top:13px;display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-family:'Inter',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;transition:background .15s,transform .15s}
+  .mem .chatbtn:hover{background:var(--teal-d);transform:translateY(-1px)}
+  .mem .chatbtn svg{width:15px;height:15px}
+  .mem .role{font-size:.84rem;color:var(--teal-d);font-weight:600;margin-top:2px}
+  .mem .aff{font-size:.8rem;color:var(--slate);margin-top:4px}
+  .note{margin-top:18px;font-size:.86rem;color:var(--slate);background:var(--soft);border:1px dashed var(--line);border-radius:10px;padding:12px 16px}
+
+  /* Budget */
+  .budget{max-width:820px}
+  .budget .row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .budget .row:last-child{border-bottom:none;font-weight:700}
+  .budget .row .lbl b{color:var(--navy)}
+  .budget .row .lbl span{display:block;font-size:.86rem;color:var(--slate);font-weight:400}
+  .budget .amt{color:var(--teal-d);font-weight:700;white-space:nowrap}
+  .budget .cap{font-size:.85rem;color:var(--slate);margin-top:14px}
+
+  /* CTA band */
+  .band{background:var(--navy);color:#eaf1f8}
+  .band h2{color:#fff}
+  .band p{color:#c7d5e6}
+
+  footer{background:var(--dark);color:#9aa1c0;padding:40px 0;font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer b{color:#dbe6f2}
+  .draft{display:inline-block;font-size:.72rem;background:rgba(200,146,43,.18);color:var(--gold);border:1px solid rgba(200,146,43,.4);border-radius:6px;padding:3px 9px;font-weight:700;letter-spacing:.04em}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="images/logo.png?v=2" alt="AI Task Force — North American University"></a>
+    <nav class="navlinks">
+      <a href="#mission">Mission</a>
+      <a href="#strategy">Strategy</a>
+      <a href="#plan">Plan</a>
+      <a href="#members">Members</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#a7b0ea">A standing committee of North American University</div>
+    <h1>AI Task Force</h1>
+    <p class="lead">Advancing the responsible, effective, and ethical use of artificial intelligence across teaching, learning, research, scholarship, and operations at North American University.</p>
+    <div class="badges">
+      <div class="badge">Established <b>2024</b></div>
+      <div class="badge">Standing committee · <a href="https://www.na.edu/documents/about/policymanual.pdf" target="_blank" rel="noopener">NAU Policy Manual</a></div>
+      <div class="badge">Aligned to the <a href="https://www.na.edu/about-nau/strategic-plan/" target="_blank" rel="noopener">NAU Strategic Plan 2025–2028</a></div>
+    </div>
+    <div class="hero-cta">
+      <a class="cta" href="#mission">Explore our mission ↓</a>
+      <a class="cta ghost" href="#plan">Operational plan</a>
+    </div>
+  </div>
+</section>
+
+<!-- CHARGE -->
+<section id="charge">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Committee Charge</div><h2>Our mandate</h2></div>
+    <div class="charge">
+      <p class="q">“The AI Task Force explores, implements, and advises on the responsible and effective use of artificial intelligence in academics and operations. The committee provides recommendations to leadership for strategic adoption of AI.”</p>
+      <cite>— NAU Policy Manual 2025–2026, Standing Committees</cite>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section id="mission" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Mission &amp; Vision</div><h2>Why we exist</h2></div>
+    <div class="two">
+      <div class="card mission">
+        <h3><span class="dot"></span>Mission</h3>
+        <p>The NAU AI Task Force advances the responsible, effective, and ethical use of artificial intelligence across teaching, learning, research, scholarship, and operations. In service of the University’s mission of teaching excellence and student-centeredness, it explores emerging AI capabilities, pilots and implements practical solutions, strengthens the University’s research and scholarly capacity, and advises leadership on the strategic adoption of AI — safeguarding academic integrity, human dignity, and the University’s values.</p>
+      </div>
+      <div class="card vision">
+        <h3><span class="dot"></span>Vision</h3>
+        <p>To make North American University a recognized model for the responsible integration of AI in higher education — where AI amplifies teaching excellence, accelerates faculty and student research and scholarship, expands student success and global competency, strengthens institutional effectiveness, and is governed by clear ethical standards that keep people, not technology, at the center.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIC ALIGNMENT -->
+<section id="strategy">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Strategic Alignment</div><h2>University goals → Task Force pillars</h2>
+      <p>The strategy is organized as five pillars, each a direct instrument of one of NAU’s five strategic goals (2025–2028). The Task Force advances the University’s plan — it does not run parallel to it.</p>
+    </div>
+    <table class="maptbl">
+      <thead><tr><th style="width:34%">NAU Strategic Goal</th><th>AI Task Force Pillar</th></tr></thead>
+      <tbody>
+        <tr><td><span class="g">Goal 1</span> · Enhance the quality of academic programs</td><td><b>1 · AI for Academic Quality &amp; Research</b> — curriculum &amp; faculty AI literacy; research productivity, tools &amp; integrity</td></tr>
+        <tr><td><span class="g">Goal 2</span> · Strengthen institutional effectiveness</td><td><b>2 · AI for Institutional Effectiveness</b> — AI in operations, training, data-informed decisions</td></tr>
+        <tr><td><span class="g">Goal 3</span> · Student-centeredness &amp; global citizenship</td><td><b>3 · AI for Students &amp; Global Citizenship</b> — advising, tutoring, accessibility, multilingual support</td></tr>
+        <tr><td><span class="g">Goal 4</span> · Engage with stakeholders</td><td><b>4 · Governance, Ethics &amp; Engagement</b> — policies, standards, transparent stakeholder input</td></tr>
+        <tr><td><span class="g">Goal 5</span> · Increase financial capacity &amp; resources</td><td><b>5 · AI Capacity &amp; Resources</b> — grants, partnerships, infrastructure &amp; tools</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PILLARS DETAIL -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Strategy in Detail</div><h2>The five pillars</h2></div>
+    <div class="pillars">
+      <div class="pillar"><div class="n">1</div><div class="goal">NAU Goal 1</div><h3>AI for Academic Quality &amp; Research</h3>
+        <ul><li>Integrate AI into curriculum, including AI / agentic-AI concentrations</li><li>Build faculty AI literacy and teaching innovation</li><li>Enable AI-assisted research: literature review, analysis, coding, scholarly writing; grow research output</li><li>Uphold academic integrity, building on the Student AI Usage Policy</li></ul></div>
+      <div class="pillar"><div class="n">2</div><div class="goal">NAU Goal 2</div><h3>AI for Institutional Effectiveness</h3>
+        <ul><li>Pilot AI in operations: admissions, advising, registration, help desk, communications</li><li>Deliver a campus-wide AI training program</li><li>Support data-informed, timely decision-making across departments</li></ul></div>
+      <div class="pillar"><div class="n">3</div><div class="goal">NAU Goal 3</div><h3>AI for Students &amp; Global Citizenship</h3>
+        <ul><li>AI-powered support: advising agents, tutoring, accessibility, multilingual help</li><li>Keep student needs and career goals central</li><li>Teach responsible AI citizenship</li></ul></div>
+      <div class="pillar"><div class="n">4</div><div class="goal">NAU Goal 4</div><h3>Governance, Ethics &amp; Engagement</h3>
+        <ul><li>Establish AI governance: policies, guidelines, responsible-use standards</li><li>Engage faculty, students, employers, and community</li><li>Communicate transparently; advise leadership</li></ul></div>
+      <div class="pillar"><div class="n">5</div><div class="goal">NAU Goal 5</div><h3>AI Capacity &amp; Resources</h3>
+        <ul><li>Pursue grants, partnerships, and sponsorships (including research funding)</li><li>Invest cost-effectively in AI infrastructure and tools</li><li>Build sustainable AI capacity</li></ul></div>
+      <div class="pillar" style="display:grid;place-content:center;background:linear-gradient(135deg,var(--navy) 0%,var(--gold) 130%);color:#eaf1f8;border:none">
+        <div style="text-align:center"><div class="eyebrow" style="color:#a7b0ea">Guiding stance</div><p style="font-family:'Montserrat';font-size:1.15rem;color:#fff;margin:8px 0 0;line-height:1.4">People, not technology, at the center.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section id="principles">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Guiding Principles</div><h2>Rooted in NAU’s core values</h2>
+      <p>The Task Force operates by the University’s core values, expressed as working principles.</p></div>
+    <div class="principles">
+      <div class="pr"><div class="v">Human Dignity</div><b>Human-centered AI</b><p style="margin:.4rem 0 0;color:var(--slate);font-size:.92rem">People over technology in every decision.</p></div>
+      <div class="pr"><div class="v">Integrity</div><b>Transparency by default</b><p style="margin:.4rem 0 0;color:var(--slate);font-size:.92rem">Honesty and openness in every deployment.</p></div>
+      <div class="pr"><div class="v">Learning</div><b>Evidence &amp; iteration</b><p style="margin:.4rem 0 0;color:var(--slate);font-size:.92rem">Continuous learning grounded in evidence.</p></div>
+      <div class="pr"><div class="v">Teamwork</div><b>Cross-department collaboration</b><p style="margin:.4rem 0 0;color:var(--slate);font-size:.92rem">Working across academics and operations.</p></div>
+      <div class="pr"><div class="v">Leadership</div><b>Responsible innovation</b><p style="margin:.4rem 0 0;color:var(--slate);font-size:.92rem">Bold but accountable adoption of AI.</p></div>
+      <div class="pr"><div class="v">Ethical Conduct</div><b>Standards that hold</b><p style="margin:.4rem 0 0;color:var(--slate);font-size:.92rem">Clear ethical guardrails for all AI use.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATIONAL PLAN -->
+<section id="plan" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Operational Plan · AY 2026–2027</div><h2>From onboarding to action</h2>
+      <p>Before advising the University, the committee reaches a shared baseline through four onboarding sessions, then executes a three-phase action plan across the year.</p></div>
+    <div class="phases">
+      <div class="phase"><div class="tag">Fall 2026</div><div class="term">Foundation</div>
+        <ul><li>Onboard &amp; train the Task Force</li><li>Adopt charter, mission, vision &amp; strategy</li><li>AI inventory &amp; needs assessment</li><li>Draft responsible-use guidelines</li><li>University-wide AI literacy training</li><li>Launch this website</li><li>Shortlist 2–3 pilots &amp; secure funding</li></ul></div>
+      <div class="phase"><div class="tag">Spring 2027</div><div class="term">Pilots &amp; Enablement</div>
+        <ul><li>Run pilots (advising / help-desk agent; faculty research toolkit; one operations automation)</li><li>Adopt academic-integrity &amp; research-conduct standards for AI</li><li>Recommend a governance framework (use, data, privacy)</li></ul></div>
+      <div class="phase"><div class="tag">Summer 2027</div><div class="term">Evaluate &amp; Scale</div>
+        <ul><li>Evaluate pilots against metrics; decide what to scale</li><li>Deliver a phased AI roadmap &amp; funding plan</li><li>Year-end report; set 2027–2028 priorities</li></ul></div>
+    </div>
+    <p style="margin-top:22px;color:var(--slate);font-size:.95rem"><b style="color:var(--navy)">All year, cross-cutting:</b> stakeholder engagement (faculty, students, employers); quarterly updates to leadership; a research emphasis, including pursuit of at least one external grant.</p>
+  </div>
+</section>
+
+<!-- YEAR ONE PRIORITIES -->
+<section id="priorities">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Year-One Priorities</div><h2>What we will deliver first</h2></div>
+    <div class="prio">
+      <div class="pc" data-i="0" tabindex="0" role="button" aria-label="AI inventory details"><div class="num">1</div><h4>AI inventory</h4><p>Map current AI use across academics and operations; find gaps and quick wins.</p><span class="more">Details →</span></div>
+      <div class="pc" data-i="1" tabindex="0" role="button" aria-label="Responsible-use guidelines details"><div class="num">2</div><h4>Responsible-use guidelines</h4><p>Faculty &amp; staff guidance, complementing the Student AI Usage Policy.</p><span class="more">Details →</span></div>
+      <div class="pc" data-i="2" tabindex="0" role="button" aria-label="Pilots details"><div class="num">3</div><h4>Pilots</h4><p>Launch 2–3 pilots — e.g., an advising / help-desk agent and a faculty research toolkit.</p><span class="more">Details →</span></div>
+      <div class="pc" data-i="3" tabindex="0" role="button" aria-label="AI literacy program details"><div class="num">4</div><h4>AI literacy program</h4><p>Train faculty and staff; seed a culture of responsible, effective AI use.</p><span class="more">Details →</span></div>
+      <div class="pc" data-i="4" tabindex="0" role="button" aria-label="Strategic roadmap details"><div class="num">5</div><h4>Strategic roadmap</h4><p>Recommend a phased AI roadmap and resource plan to leadership.</p><span class="more">Details →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Committee Members</div><h2>Who we are</h2></div>
+    <div class="members">
+      <div class="mem"><div class="av"><img src="images/azamat.jpg?v=2" alt="Azamat Zhamanov"></div><b>Azamat Zhamanov</b><div class="deg">PhD</div><div class="role">Chair of AI Task Force</div><div class="aff">Assistant Professor, Computer Science, NAU</div></div>
+      <div class="mem"><div class="av"><img src="images/taban.jpg" alt="Faruk Taban"></div><b>Faruk Taban</b><div class="deg">Ph.D.</div><div class="role">President</div><div class="aff">North American University</div></div>
+      <div class="mem"><div class="av"><img src="images/smith.webp" alt="Ann Marie Smith"></div><b>Ann Marie Smith</b><div class="deg">Ph.D.</div><div class="role">Associate Professor</div><div class="aff">Education, NAU</div></div>
+      <div class="mem"><div class="av"><img src="images/green.webp" alt="Tomas Green"></div><b>Tomas Green</b><div class="deg">Ed.D., MBA, M.Ed.</div><div class="role">Assistant Professor</div><div class="aff">Education, NAU</div></div>
+      <div class="mem"><div class="av"><img src="images/kaan.jpg?v=3" alt="Kaan Isbilen"></div><b>Kaan Isbilen</b><div class="role">University Strategy</div><div class="aff">North American University</div></div>
+      <div class="mem"><div class="av"><img src="images/tuba.jpg" alt="Tuba Yildirim"></div><b>Tuba Yildirim</b><div class="role">Database Engineer</div><div class="aff">North American University</div></div>
+      <div class="mem"><div class="av">FC</div><b>Fuat Can</b><div class="role">IT Coordinator / IT Manager</div><div class="aff">North American University</div></div>
+      <div class="mem"><div class="av"><img src="images/emin.jpg" alt="Emin Aktash"></div><b>Emin Aktash</b><div class="role">IT Support Specialist</div><div class="aff">North American University</div></div>
+      <div class="mem naumi">
+        <div class="av"><img src="images/naumi.png" alt="NAUmi"></div>
+        <b>NAUmi</b>
+        <div class="role">AI Assistant</div>
+        <div class="tagline">Our AI committee assistant — ask about the mission, strategy &amp; plan</div>
+        <button class="chatbtn" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Chat with NAUmi</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section id="budget">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Pilot Resources</div><h2>What the pilots need</h2>
+      <p>To run the Fall 2026–Spring 2027 pilots responsibly, the Task Force requests controlled institutional support, tied to defined pilots and success metrics.</p></div>
+    <div class="budget">
+      <div class="row"><div class="lbl"><b>Compute / hosting</b><span>A dedicated server or cloud VM for the advising agent, RAG knowledge base, and usage logging.</span></div></div>
+      <div class="row"><div class="lbl"><b>LLM API access</b><span>Metered API usage that powers the pilots, primarily the 24/7 advising assistant.</span></div></div>
+      <div class="row"><div class="lbl"><b>Tool subscriptions</b><span>Team licenses for the AI tools used in the teaching and operations pilots.</span></div></div>
+      <p class="cap">Support is requested as a controlled, metrics-tied allocation and reviewed against pilot outcomes. Detailed resourcing is provided to leadership in the Operational Plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section id="contact" class="band" style="border-bottom:none">
+  <div class="wrap" style="text-align:center;max-width:760px">
+    <div class="eyebrow" style="color:#a7b0ea">Get involved</div>
+    <h2>Building a responsible AI future for NAU</h2>
+    <p>The AI Task Force welcomes input from faculty, students, staff, and community partners. To share feedback, propose a pilot, or learn more, contact the committee chair.</p>
+    <p style="margin-top:22px"><a class="cta" href="mailto:azhamanov@na.edu">Contact the Chair</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex;align-items:center;gap:16px">
+      <img src="images/logo_white.png?v=2" alt="AI Task Force — North American University" style="height:40px;width:auto;opacity:.96">
+      <div>
+        A standing committee of North American University<br>
+        Established 2024 · Aligned to the NAU Strategic Plan 2025–2028
+      </div>
+    </div>
+    <div style="text-align:right;font-size:.85rem">
+      <b>Chair:</b> Azamat Zhamanov, PhD<br>
+      <span style="font-size:.8rem;opacity:.8">Advancing responsible AI at NAU</span>
+    </div>
+  </div>
+</footer>
+
+<!-- AI Task Force chat assistant -->
+<style>
+  #chatFab{position:fixed;right:22px;bottom:22px;z-index:120;display:flex;align-items:center;gap:10px;background:var(--gold);color:#fff;border:none;border-radius:999px;padding:13px 20px 13px 16px;font-family:'Inter',sans-serif;font-weight:700;font-size:.92rem;cursor:pointer;box-shadow:0 10px 28px rgba(74,85,172,.4);transition:transform .15s,background .15s}
+  #chatFab:hover{transform:translateY(-2px);background:var(--teal-d)}
+  #chatFab svg{width:20px;height:20px;flex:none}
+  #chatPanel{position:fixed;right:22px;bottom:22px;z-index:121;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 40px));background:#fff;border-radius:18px;box-shadow:0 24px 70px rgba(20,24,50,.34);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+  #chatPanel.open{display:flex}
+  @media(max-width:560px){#chatPanel{right:0;left:0;top:0;bottom:0;width:100%;height:100vh;height:100dvh;max-height:100dvh;border-radius:0;border:none}}
+  .cw-head{background:linear-gradient(120deg,var(--navy),#2f3860);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:11px;flex:none}
+  .cw-head .cw-ava{width:34px;height:34px;border-radius:9px;overflow:hidden;flex:none}
+  .cw-head .cw-ava img{width:100%;height:100%;object-fit:cover;display:block}
+  .cw-head b{font-size:.98rem;display:block;line-height:1.2}
+  .cw-head span{font-size:.74rem;color:#c3c9f2}
+  .cw-x{margin-left:auto;background:rgba(255,255,255,.14);border:none;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:1.15rem;line-height:1}
+  .cw-x:hover{background:rgba(255,255,255,.28)}
+  .cw-msgs{flex:1;overflow-y:auto;padding:16px;background:var(--soft);display:flex;flex-direction:column;gap:10px}
+  .cw-msg{max-width:85%;padding:10px 13px;border-radius:13px;font-size:.9rem;line-height:1.5;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+  .cw-msg.bot{background:#fff;border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:4px;align-self:flex-start}
+  .cw-msg.user{background:var(--gold);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+  .cw-msg.bot strong{color:var(--navy)}
+  .cw-msg ul{margin:6px 0 0;padding-left:18px}
+  .cw-msg li{margin:2px 0}
+  .cw-typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:13px}
+  .cw-typing i{width:7px;height:7px;border-radius:50%;background:#b9c0d6;animation:cwb 1s infinite}
+  .cw-typing i:nth-child(2){animation-delay:.15s}.cw-typing i:nth-child(3){animation-delay:.3s}
+  @keyframes cwb{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+  .cw-suggest{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px;background:var(--soft)}
+  .cw-suggest button{background:#fff;border:1px solid var(--line);color:var(--teal-d);border-radius:999px;padding:6px 11px;font-size:.76rem;font-weight:600;cursor:pointer}
+  .cw-suggest button:hover{border-color:var(--gold);color:var(--gold)}
+  .cw-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#fff}
+  .cw-input textarea{flex:1;resize:none;border:1px solid var(--line);border-radius:11px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:16px;max-height:90px;outline:none}
+  .cw-input textarea:focus{border-color:var(--gold)}
+  .cw-send{background:var(--gold);border:none;color:#fff;border-radius:11px;width:42px;flex:none;cursor:pointer;display:grid;place-items:center}
+  .cw-send:hover{background:var(--teal-d)}.cw-send:disabled{opacity:.5;cursor:default}
+  .cw-send svg{width:18px;height:18px}
+  .cw-foot{font-size:.68rem;color:var(--slate);text-align:center;padding:0 12px 8px;background:#fff}
+</style>
+<button id="chatFab" aria-label="Open the AI Task Force assistant">
+  <img src="images/naumi.png" alt="" style="width:22px;height:22px;border-radius:6px">
+  Ask NAUmi
+</button>
+<div id="chatPanel" role="dialog" aria-label="AI Task Force assistant">
+  <div class="cw-head">
+    <div class="cw-ava"><img src="images/naumi.png" alt="NAUmi"></div>
+    <div><b>NAUmi</b><span>AI Task Force Assistant</span></div>
+    <button class="cw-x" id="cwClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="cw-msgs" id="cwMsgs"></div>
+  <div class="cw-suggest" id="cwSuggest">
+    <button data-q="What is the mission of the AI Task Force?">Our mission</button>
+    <button data-q="What are the five strategy pillars?">Strategy pillars</button>
+    <button data-q="What is the operational plan for the year?">Operational plan</button>
+  </div>
+  <div class="cw-input">
+    <textarea id="cwText" rows="1" placeholder="Ask a question..." maxlength="800"></textarea>
+    <button class="cw-send" id="cwSend" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+  </div>
+  <div class="cw-foot">Answers cover the AI Task Force's mission, vision, strategy &amp; plan.</div>
+</div>
+<script>
+(function(){
+  var fab=document.getElementById('chatFab'), panel=document.getElementById('chatPanel'),
+      msgs=document.getElementById('cwMsgs'), text=document.getElementById('cwText'),
+      send=document.getElementById('cwSend'), suggest=document.getElementById('cwSuggest'),
+      started=false, busy=false, history=[];
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function fmt(t){
+    t=esc(t).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+    var lines=t.split(/\n/),out=[],inul=false;
+    lines.forEach(function(l){
+      var hm=l.match(/^\s*#{1,6}\s+(.*)/);
+      if(hm){ if(inul){out.push('</ul>');inul=false;} out.push('<div><strong>'+hm[1]+'</strong></div>'); return; }
+      var m=l.match(/^\s*[-•*]\s+(.*)/);
+      if(m){ if(!inul){out.push('<ul>');inul=true;} out.push('<li>'+m[1]+'</li>'); }
+      else { if(inul){out.push('</ul>');inul=false;} out.push(l.trim()?('<div>'+l+'</div>'):''); }
+    });
+    if(inul)out.push('</ul>');
+    return out.join('');
+  }
+  function add(role,txtHtml){
+    var d=document.createElement('div'); d.className='cw-msg '+role;
+    d.innerHTML = role==='bot'?fmt(txtHtml):esc(txtHtml);
+    msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d;
+  }
+  function open(){
+    panel.classList.add('open'); fab.style.display='none'; fitViewport();
+    if(!started){started=true; add('bot',"Hi! I'm NAUmi, the AI Task Force assistant. Ask me anything about our mission, vision, strategy, or operational plan."); }
+    setTimeout(function(){text.focus();},100);
+  }
+  function close(){panel.classList.remove('open'); fab.style.display=''; clearFit();}
+  // On mobile, pin the panel to the visible viewport so the keyboard doesn't
+  // push the header off-screen or shift the send button out of view (iOS Safari).
+  function clearFit(){ panel.style.top=panel.style.left=panel.style.width=panel.style.height=''; }
+  function fitViewport(){
+    var vv=window.visualViewport;
+    if(!vv || window.innerWidth>560 || !panel.classList.contains('open')){ clearFit(); return; }
+    panel.style.top=vv.offsetTop+'px'; panel.style.left=vv.offsetLeft+'px';
+    panel.style.width=vv.width+'px'; panel.style.height=vv.height+'px';
+    msgs.scrollTop=msgs.scrollHeight;
+  }
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize',fitViewport);
+    window.visualViewport.addEventListener('scroll',fitViewport);
+  }
+  // Served from aitf.itskills.kz the assistant is on the same origin; on other hosts (GitHub Pages / aitf.na.edu) it is called cross-origin.
+  var API_BASE=/(^|\.)itskills\.kz$/.test(location.hostname)||/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'':'https://aitf.itskills.kz';
+  function ask(q){
+    if(busy||!q.trim())return; busy=true; send.disabled=true;
+    add('user',q); text.value=''; suggest.style.display='none';
+    var typ=document.createElement('div'); typ.className='cw-typing'; typ.innerHTML='<i></i><i></i><i></i>';
+    msgs.appendChild(typ); msgs.scrollTop=msgs.scrollHeight;
+    fetch(API_BASE+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:history.slice(-8)})})
+      .then(function(r){return r.json();})
+      .then(function(d){ typ.remove(); var reply=d.reply||"Sorry, please try again."; add('bot', reply); history.push({role:'user',text:q},{role:'assistant',text:reply}); if(history.length>12)history=history.slice(-12); })
+      .catch(function(){ typ.remove(); add('bot',"Sorry, I couldn't reach the server. Please try again."); })
+      .finally(function(){ busy=false; send.disabled=false; text.focus(); });
+  }
+  fab.addEventListener('click',open);
+  document.getElementById('cwClose').addEventListener('click',close);
+  send.addEventListener('click',function(){ask(text.value);});
+  text.addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){e.preventDefault(); ask(text.value);} });
+  text.addEventListener('input',function(){ text.style.height='auto'; text.style.height=Math.min(90,text.scrollHeight)+'px'; });
+  suggest.addEventListener('click',function(e){ var b=e.target.closest('button[data-q]'); if(b)ask(b.getAttribute('data-q')); });
+  window.openNAUmi = open;   // let the NAUmi member card open the chat
+  document.querySelectorAll('[data-open-chat]').forEach(function(el){ el.addEventListener('click',function(e){e.preventDefault();open();}); });
+  if(location.hash==='#chat-open') open();
+})();
+</script>
+
+<div class="modal-ov" id="prioModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+    <div class="mhead">
+      <button class="mclose" id="pmClose" aria-label="Close">&times;</button>
+      <div class="mnum" id="pmNum"></div>
+      <h3 id="pmTitle"></h3>
+      <div class="mtag" id="pmTag"></div>
+    </div>
+    <div class="mbody" id="pmBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var DATA = [
+    {num:"1", title:"AI inventory", tag:"Fall 2026 · Institutional Effectiveness",
+     lead:"Build a clear, shared picture of where AI is already used across the University and where it should be — the factual baseline every other priority depends on.",
+     head:"What it involves",
+     items:["Survey academic and administrative departments on the AI tools in use today",
+            "Assess each tool's data-privacy, licensing, and integration status",
+            "Identify high-impact quick wins and the most important capability gaps"],
+     meta:["Deliverable: Inventory report with gaps &amp; quick wins","Aligns to NAU Goal 2"]},
+    {num:"2", title:"Responsible-use guidelines", tag:"Fall 2026 → Spring 2027 · Governance &amp; Ethics",
+     lead:"Give faculty and staff clear, practical guidance on using AI responsibly — complementing the existing Student AI Usage Policy and closing the current faculty and operations gaps.",
+     head:"What it includes",
+     items:["Course-level AI expectations and a standard syllabus AI statement",
+            "Guidance on grading, feedback, and appropriate instructor use of AI",
+            "Attribution, transparency, and data-privacy practices for staff and research"],
+     meta:["Deliverable: Draft guidelines for review","Aligns to NAU Goal 4"]},
+    {num:"3", title:"Pilots", tag:"Fall 2026 shortlist → Spring 2027 run",
+     lead:"Prove value with a small number of well-scoped pilots, each tied to defined success metrics before anything is scaled.",
+     head:"Candidate pilots",
+     items:["A 24/7 advising / help-desk assistant answering course, registration, and deadline questions, with complex cases routed to a human",
+            "A faculty research-assist toolkit for literature review, data analysis, and writing support",
+            "One operations automation — for example, admissions correspondence and reminders"],
+     meta:["Deliverable: Pilot briefs → working pilots with data","Aligns to NAU Goals 1–3"]},
+    {num:"4", title:"AI literacy program", tag:"Fall 2026 · University-wide",
+     lead:"Train faculty and staff so the whole University shares a common, accurate understanding of AI and how to use it responsibly and effectively.",
+     head:"What it includes",
+     items:["A workshop series: foundations of AI, responsible &amp; ethical use, and hands-on tools",
+            "A shared glossary and resource base for the community",
+            "A culture of responsible, effective AI use across teaching and operations"],
+     meta:["Deliverable: Workshop series delivered; all faculty &amp; staff trained","Aligns to NAU Goals 1 &amp; 2"]},
+    {num:"5", title:"Strategic roadmap", tag:"Summer 2027 · Capacity &amp; Resources",
+     lead:"Turn a year of evidence into a clear, phased plan for how NAU should adopt AI next — with the resources to do it responsibly.",
+     head:"What it includes",
+     items:["Evaluate the pilots against their metrics and decide what to scale",
+            "A phased AI adoption roadmap aligned to the NAU Strategic Plan 2025–2028",
+            "A resource and funding plan, including grants and partnerships"],
+     meta:["Deliverable: Roadmap &amp; recommendation; year-end report to leadership","Aligns to NAU Goal 5"]}
+  ];
+  var ov = document.getElementById('prioModal');
+  var elNum = document.getElementById('pmNum'), elTitle = document.getElementById('pmTitle'),
+      elTag = document.getElementById('pmTag'), elBody = document.getElementById('pmBody');
+  var lastFocus = null;
+  function open(i){
+    var d = DATA[i]; if(!d) return;
+    lastFocus = document.activeElement;
+    elNum.textContent = d.num; elTitle.textContent = d.title; elTag.innerHTML = d.tag;
+    var html = '<p>'+d.lead+'</p><h5>'+d.head+'</h5><ul>';
+    d.items.forEach(function(it){ html += '<li>'+it+'</li>'; });
+    html += '</ul><div class="mmeta">';
+    d.meta.forEach(function(m){ html += '<span class="chip">'+m+'</span>'; });
+    html += '</div>';
+    elBody.innerHTML = html;
+    ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.getElementById('pmClose').focus();
+  }
+  function close(){
+    ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    if(lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('.pc[data-i]').forEach(function(c){
+    c.addEventListener('click', function(){ open(+c.getAttribute('data-i')); });
+    c.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(+c.getAttribute('data-i')); } });
+  });
+  document.getElementById('pmClose').addEventListener('click', close);
+  ov.addEventListener('click', function(e){ if(e.target===ov) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && ov.classList.contains('open')) close(); });
+  window.addEventListener('load', function(){ var m=(location.hash||'').match(/^#priority-([1-5])$/); if(m) open(+m[1]-1); });
+})();
+</script>
+</body>
+</html>
